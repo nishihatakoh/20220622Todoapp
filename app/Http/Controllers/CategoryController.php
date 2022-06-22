@@ -20,11 +20,17 @@ class CategoryController extends Controller
         return redirect('/category');
     }
     public function update(Request $request)
-    {
+    {   
         $this->validate($request, Category::$rules);
         $form=$request->all();
-        Category::where('id', $request->id)->update($form);
         unset($form['_token']);
+        Category::where('id', $request->id)->update($form);
+        return redirect('/category');
+    }
+    public function delete(Request $request)
+    {
+        Category::find($request->id)->delete();
         return redirect('/category');
     }
 }
+

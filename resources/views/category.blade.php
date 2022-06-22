@@ -33,45 +33,55 @@
   text-align:left;
   padding:10px 0;
 }
-.main_table-items{
+.main_table tr td{
   padding:10px 0;
+}
+.main_table-items{
   display:flex;
   justify-content: space-between;
 }
-.main_table-forms{
-  display:flex;
-  padding-right:30px;
-}
-.main_table-update input{
-  margin:0 20px;
-  color:white;
-  background-color:blue;
-  padding:5px 15px;
-  border:none;
-  border-radius: 7px;
-}
-.main_table-update input:hover{
-  cursor: pointer;
-}
-.main_table-delete input{
-  color:white;
-  background-color:red;
-  padding:5px 15px;
-  border:none;
-  border-radius: 7px;
-}
-.main_table-delete input:hover{
-  cursor: pointer;
+.main_table-update{
+  width:90%
 }
 .main_table-content{
+  width:90%;
   border:none;
-  text-decoration:none;
 }
 .main_table-content:focus{
   outline:none;
 }
+.main_table-update-bottom{
+  background-color:blue;
+  border:none;
+  color:white;
+  border-radius:3px;
+  padding:3px 15px;
+}
+.main_table-update-bottom:hover{
+  cursor: pointer;
+}
+.main_table-delete-bottom{
+  background-color:red;
+  border:none;
+  color:white;
+  border-radius:3px;
+  padding:3px 15px;
+  margin-right:30px;
+}
+.main_table-delete-bottom:hover{
+  cursor: pointer;
+}
 </style>
 @section('content')
+@if (count($errors) > 0)
+<ul>
+  @foreach ($errors->all() as $error)
+  <li>
+    {{$error}}
+  </li>
+  @endforeach
+</ul>
+@endif
 <div class="main">
   <div>
     <form class="main_create-form" action="/category/create" method="POST">
@@ -88,17 +98,15 @@
     <tr>
       <td>
         <div class="main_table-items">
-          <input type="text" name="content" class="main_table-content" value="{{$item->content}}">
-          <div class="main_table-forms">
-            <form class="main_table-update" action="{{ route('category.update', ['id' => $item->id]) }}" method="POST">
+            <form  action="{{ route('category.update', ['id' => $item->id]) }}" class="main_table-update"method="POST">
               @csrf
-              <input type="submit" value="更新">
+              <input type="text" name="content" class="main_table-content" value="{{$item->content}}">
+              <input type="submit" class="main_table-update-bottom" value="更新">
             </form>
-            <form class="main_table-delete" action="/category/delete" method="POST">
+            <form class="main_table-delete" action="{{ route('category.delete', ['id' => $item->id]) }}" method="POST">
               @csrf
-              <input type="submit" value="削除">
+              <input type="submit" class="main_table-delete-bottom" value="削除">
             </form>
-          </div>
         </div>
       </td>
     </tr>

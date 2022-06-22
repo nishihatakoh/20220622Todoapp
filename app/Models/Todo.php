@@ -9,5 +9,10 @@ class Todo extends Model
 {
     use HasFactory;
 
-    
+    protected $guarded = array('id');
+
+    public static $rules = array(
+        'category_id' =>'required',
+        'content' => 'required'
+    );
 }
