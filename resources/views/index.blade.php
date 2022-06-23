@@ -8,7 +8,7 @@
       <input type="text" name="content">
       <select name="" id="">
         @foreach($items as $item)
-        <option value="">{{$item->category.content}}</option>
+        <option value="category_id">{{$item->category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="作成">
@@ -20,7 +20,7 @@
       <input type="text" name="content">
       <select name="" id="">
         @foreach($items as $item)
-        <option value="">{{$item->category_id}}</option>
+        <option value="category_id">{{$item->category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="検索">

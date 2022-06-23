@@ -15,4 +15,9 @@ class Todo extends Model
         'category_id' =>'required',
         'content' => 'required'
     );
+
+    public function categories()
+    {
+        return $this->hasMany('App/Models/category');
+    }
 }

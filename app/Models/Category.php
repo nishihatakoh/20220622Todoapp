@@ -14,5 +14,9 @@ class Category extends Model
     public static $rules = array(
         'content' => 'required'
     );
+
+    public function todo(){
+        return $this->belongsTo('App/Models/todo');
+    }
 }
 
