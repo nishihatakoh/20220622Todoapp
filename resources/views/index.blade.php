@@ -36,8 +36,8 @@
       <input type="text" class="main-form-content" name="content">
       <select name="category-content" id="" class="main-form-select">
         <option value="">カテゴリー</option>
-        @foreach($items as $item)
-        <option value="category_id">{{$item->categories->content}}</option>
+        @foreach($categories as $category)
+        <option value="category_id">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="作成" class="main-form-bottom">
@@ -49,8 +49,8 @@
       <input type="text" class="main-form-content" name="content">
       <select name="category-content" id="" class="main-form-select">
         <option value="">カテゴリー</option>
-        @foreach($items as $item)
-        <option value="category_id">{{$item->category->content}}</option>
+        @foreach($categories as $category)
+        <option value="category_id">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="検索" class="main-form-bottom">
