@@ -12,6 +12,14 @@ class TodoController extends Controller
     {
         $items = todo::with('categories')->get();
         $categories = Category::all();
-        return view('index',['items' => $items, 'categories' =>$categories]);
+        return view('index',['items' => $items, 'categories' => $categories]);
+    }
+    public function create(Request $request)
+    {
+        $this->validate($request, Todo::$rules);
+        $form=$request->all();
+        unset($form['_token']);
+        Todo::create($form);
+        return redirect('/');
     }
 }
