@@ -15,8 +15,8 @@ class Category extends Model
         'content' => 'required'
     );
 
-    public function todo(){
-        return $this->belongsTo('App/Models/Todo');
+    public function todos(){
+        return $this->hasMany('App\Models\Todo');
     }
 }
 

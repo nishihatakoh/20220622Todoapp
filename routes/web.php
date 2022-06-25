@@ -13,3 +13,5 @@ Route::post('/category/delete',[CategoryController::class,'delete'])->name('cate
 
 Route::get('/',[TodoController::class,'index'])->name('todo.index');
 Route::post('/create',[TodoController::class,'create'])->name('todo.create');
+Route::post('/update',[TodoController::class,'update'])->name('todo.update');
+Route::post('/delete',[TodoController::class,'delete'])->name('todo.delete');

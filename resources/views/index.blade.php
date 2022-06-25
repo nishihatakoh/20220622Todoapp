@@ -27,6 +27,43 @@
   .main-form-bottom:hover{
     cursor: pointer;
   }
+  table{
+    width:100%;
+    text-align:left;
+  }
+  table tr{
+    border-bottom:1px solid #CCCCCC;
+  }
+  table tr th{
+    padding:15px 0 15px 0;
+  }
+  .table-update-content{
+    width:100%;
+    border:none;
+  }
+  .table-update-content:focus{
+    outline:none;
+  }
+  .table-update-bottom{
+    background-color:blue;
+  border:none;
+  color:white;
+  border-radius:3px;
+  padding:3px 15px;
+  }
+  .table-update-bottom:hover{
+    cursor: pointer;
+  }
+  .table-delete-bottom{
+    background-color:red;
+  border:none;
+  color:white;
+  border-radius:3px;
+  padding:3px 15px;
+  }
+  .table-delete-bottom:hover{
+    cursor: pointer;
+  }
 </style>
 @section('content')
 <div class="main">
@@ -59,21 +96,22 @@
   </div>
   <table>
     <tr>
-      <th>
-        <h3>Todo</h3>
-        <h3>カテゴリ</h3>
-      </th>
+        <th><h3 class="table-ttl-todo">Todo</h3></th>
+        <th><h3 class="table-ttl-category">カテゴリ</h3></th>
+        <th></th>
+        <th></th>
     </tr>
     @foreach($items as $item)
     <tr>
-      <td>
         <form action="{{ route('todo.update', ['id' => $item->id]) }}" method="POST">
-          <input type="text" value="{{$item->content}}" name="content">
-          <p>{{$item->$category->content}}</p>
-          <input type="submit" value="更新">
+          @csrf
+          <th><input type="text" value="{{$item->content}}" class="table-update-content" name="content"></th>
+          <th><p value="{{$category->id}}">{{$category->content}}</p></th>
+          <th><input type="submit" class="table-update-bottom" value="更新"></th>
         </form>
         <form action="{{ route('todo.delete', ['id' => $item->id]) }}" method="POST">
-          <input type="submit" value="削除">
+          @csrf
+          <th><input type="submit" class="table-delete-bottom" value="削除"></th>
         </form>
       </td>
     </tr>
