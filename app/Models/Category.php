@@ -16,7 +16,7 @@ class Category extends Model
     );
 
     public function todo(){
-        return $this->belongsTo('App/Models/todo');
+        return $this->belongsTo('App/Models/Todo');
     }
 }
 

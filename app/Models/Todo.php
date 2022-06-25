@@ -20,6 +20,6 @@ class Todo extends Model
 
     public function categories()
     {
-        return $this->hasMany('App/Models/category');
+        return $this->hasMany('App/Models/Category');
     }
 }
