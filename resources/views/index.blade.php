@@ -75,7 +75,7 @@
       <select name="category_id" id="" class="main-form-select">
         <option value="">カテゴリー</option>
         @foreach($categories as $category)
-        <option value="{{$category->id}}">{{$category->content}}</option>
+        <option name="category-content" value="{{$category->id}}">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="作成" class="main-form-bottom">
@@ -88,7 +88,7 @@
       <select name="category-content" id="" class="main-form-select">
         <option value="">カテゴリー</option>
         @foreach($categories as $category)
-        <option value="category_id">{{$category->content}}</option>
+        <option name="category_id" value="category_id">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="検索" class="main-form-bottom">
@@ -106,7 +106,7 @@
         <form action="{{ route('todo.update', ['id' => $item->id]) }}" method="POST">
           @csrf
           <th><input type="text" value="{{$item->content}}" class="table-update-content" name="content"></th>
-          <th><p value="{{$category->id}}">{{$category->content}}</p></th>
+          <th><p name="category_id" value="{{$category->id}}">{{$category->content}}</p></th>
           <th><input type="submit" class="table-update-bottom" value="更新"></th>
         </form>
         <form action="{{ route('todo.delete', ['id' => $item->id]) }}" method="POST">

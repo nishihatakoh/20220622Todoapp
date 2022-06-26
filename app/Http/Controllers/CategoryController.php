@@ -22,6 +22,7 @@ class CategoryController extends Controller
     }
     public function update(Request $request)
     {   
+        
         $this->validate($request, Category::$rules);
         $form=$request->all();
         unset($form['_token']);
@@ -30,6 +31,7 @@ class CategoryController extends Controller
     }
     public function delete(Request $request)
     {
+        dd($request->all());
         Category::find($request->id)->delete();
         return redirect('/category');
     }
