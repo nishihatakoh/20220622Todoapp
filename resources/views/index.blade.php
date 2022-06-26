@@ -105,13 +105,22 @@
     <tr>
         <form action="{{ route('todo.update', ['id' => $item->id]) }}" method="POST">
           @csrf
-          <th><input type="text" value="{{$item->content}}" class="table-update-content" name="content"></th>
-          <th><p name="category_id" value="{{$category->id}}">{{$category->content}}</p></th>
-          <th><input type="submit" class="table-update-bottom" value="更新"></th>
+          <th>
+            <input type="text" value="{{$item->content}}" class="table-update-content" name="content">
+          </th>
+          <th>
+            <p value="{{$category->id}}">{{$category->content}}</p>
+            <input type="hidden" name="category_id">
+          </th>
+          <th>
+            <input type="submit" class="table-update-bottom" value="更新">
+          </th>
         </form>
         <form action="{{ route('todo.delete', ['id' => $item->id]) }}" method="POST">
           @csrf
-          <th><input type="submit" class="table-delete-bottom" value="削除"></th>
+          <th>
+            <input type="submit" class="table-delete-bottom" value="削除">
+          </th>
         </form>
       </td>
     </tr>
