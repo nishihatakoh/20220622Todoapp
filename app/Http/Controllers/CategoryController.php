@@ -16,22 +16,24 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, Category::$rules);
+        $category = new Category;
         $form=$request->all();
-        Category::create($form);
+        $category->fill($form)->save();
+        unset($form['_token']);
         return redirect('/category');
     }
     public function update(Request $request)
     {   
-        
+        dd($request->all());
         $this->validate($request, Category::$rules);
-        $form=$request->all();
+        $category = Category::find($request->id);
+        $form = $request->all();
         unset($form['_token']);
-        Category::where('id', $request->id)->update($form);
+        $category->fill($form)->save();
         return redirect('/category');
     }
     public function delete(Request $request)
     {
-        dd($request->all());
         Category::find($request->id)->delete();
         return redirect('/category');
     }

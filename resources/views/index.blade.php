@@ -72,10 +72,10 @@
     <form action="/create" method="POST">
       @csrf
       <input type="text" class="main-form-content" name="content">
-      <select name="category_id" id="" class="main-form-select">
+      <select  name="category_id"  class="main-form-select">
         <option value="">カテゴリー</option>
         @foreach($categories as $category)
-        <option name="category-content" value="{{$category->id}}">{{$category->content}}</option>
+        <option value="{{$category->id}}">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="作成" class="main-form-bottom">
@@ -88,7 +88,7 @@
       <select name="category-content" id="" class="main-form-select">
         <option value="">カテゴリー</option>
         @foreach($categories as $category)
-        <option name="category_id" value="category_id">{{$category->content}}</option>
+        <option name="category_id" value="{{$category->id}}">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="検索" class="main-form-bottom">
@@ -109,8 +109,8 @@
             <input type="text" value="{{$item->content}}" class="table-update-content" name="content">
           </th>
           <th>
-            <p value="{{$category->id}}">{{$category->content}}</p>
-            <input type="hidden" name="category_id">
+            <p>{{$category->content}}</p>
+            <input type="hidden" name="category_id"  value="{{$category->id}}">
           </th>
           <th>
             <input type="submit" class="table-update-bottom" value="更新">

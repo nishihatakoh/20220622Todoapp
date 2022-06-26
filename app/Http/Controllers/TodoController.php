@@ -16,6 +16,7 @@ class TodoController extends Controller
     }
     public function create(Request $request)
     {
+        
         $this->validate($request, Todo::$rules);
         $form=$request->all();
         unset($form['_token']);
@@ -24,7 +25,6 @@ class TodoController extends Controller
     }
     public function update(Request $request)
     {   
-        dd($request->all());
         $this->validate($request, Todo::$rules);
         $form=$request->all();
         unset($form['_token']);
