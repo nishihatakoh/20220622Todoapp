@@ -83,12 +83,13 @@
   </div>
   <h2>Todo検索</h2>
   <div>
-    <form action="/find" method="POST">
-      <input type="text" class="main-form-content" name="content">
-      <select name="category-content" id="" class="main-form-select">
+    <form action="/find" method="post">
+      @csrf
+      <input type="text" class="main-form-content" name="input" value="{{$input ?? ''}}">
+      <select name=""  class="main-form-select">
         <option value="">カテゴリー</option>
         @foreach($categories as $category)
-        <option name="category_id" value="{{$category->id}}">{{$category->content}}</option>
+        <option value="{{$category->id}}">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="検索" class="main-form-bottom">
@@ -109,7 +110,7 @@
             <input type="text" value="{{$item->content}}" class="table-update-content" name="content">
           </th>
           <th>
-            <p>{{$category->content}}</p>
+            <p>{{$item->category->content}}</p>
             <input type="hidden" name="category_id"  value="{{$category->id}}">
           </th>
           <th>
