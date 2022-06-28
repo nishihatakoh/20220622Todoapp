@@ -14,7 +14,7 @@ class Category extends Model
     public static $rules = array(
         'content' => 'required'
     );
-
+    
     public function todos(){
         return $this->hasMany('App\Models\Todo');
     }

@@ -71,12 +71,16 @@
 .main_table-delete-bottom:hover{
   cursor: pointer;
 }
+.errors{
+  background-color:pink;
+  padding:20px 0;
+}
 </style>
 @section('content')
 @if (count($errors) > 0)
 <ul>
   @foreach ($errors->all() as $error)
-  <li>
+  <li class="errors">
     {{$error}}
   </li>
   @endforeach

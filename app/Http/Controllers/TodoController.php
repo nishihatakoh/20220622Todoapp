@@ -24,11 +24,11 @@ class TodoController extends Controller
     }
     public function find(Request $request)
     {
-        dd($request->all());
-        $item = Todo::where('content', 'LIKE',"%{$request->input}%")->get();
+        $items = Todo::where('content', 'LIKE',"%{$request->input}%")->orWhere('category_id', $request->category)->get();
         $param = [
             'input' => $request->input,
-            'item' => $item
+            'category' => $request->category,
+            'items' => $items
         ];
         return redirect('/', $param);
     }

@@ -24,7 +24,6 @@ class CategoryController extends Controller
     }
     public function update(Request $request)
     {   
-        dd($request->all());
         $this->validate($request, Category::$rules);
         $category = Category::find($request->id);
         $form = $request->all();

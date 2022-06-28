@@ -64,8 +64,21 @@
   .table-delete-bottom:hover{
     cursor: pointer;
   }
+  .errors{
+  background-color:pink;
+  padding:20px 0;
+}
 </style>
 @section('content')
+@if (count($errors) > 0)
+<ul>
+  @foreach ($errors->all() as $error)
+  <li class="errors">
+    {{$error}}
+  </li>
+  @endforeach
+</ul>
+@endif
 <div class="main">
   <h2>新規作成</h2>
   <div class="main-form">
@@ -86,8 +99,8 @@
     <form action="/find" method="post">
       @csrf
       <input type="text" class="main-form-content" name="input" value="{{$input ?? ''}}">
-      <select name=""  class="main-form-select">
-        <option value="">カテゴリー</option>
+      <select name="category"  class="main-form-select">
+        <option value="{{$category}}">カテゴリー</option>
         @foreach($categories as $category)
         <option value="{{$category->id}}">{{$category->content}}</option>
         @endforeach
