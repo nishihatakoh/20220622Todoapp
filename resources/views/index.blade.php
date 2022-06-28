@@ -100,9 +100,9 @@
       @csrf
       <input type="text" class="main-form-content" name="input" value="{{$input ?? ''}}">
       <select name="category"  class="main-form-select">
-        <option value="{{$category}}">カテゴリー</option>
+        <option value="">カテゴリー</option>
         @foreach($categories as $category)
-        <option value="{{$category->id}}">{{$category->content}}</option>
+        <option value="{{$category}}">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="検索" class="main-form-bottom">
