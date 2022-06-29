@@ -11,6 +11,10 @@ class ClientRequest extends FormRequest
      *
      * @return bool
      */
+    public function authorize()
+    {
+        return false;
+    }
     public function rules()
     {
         return [

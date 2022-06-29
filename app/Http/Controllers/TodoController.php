@@ -30,7 +30,7 @@ class TodoController extends Controller
             'category' => $request->category,
             'items' => $items
         ];
-        return redirect('/', $param);
+        return view('index', $param);
     }
     public function update(Request $request)
     {   

@@ -102,7 +102,7 @@
       <select name="category"  class="main-form-select">
         <option value="">カテゴリー</option>
         @foreach($categories as $category)
-        <option value="{{$category}}">{{$category->content}}</option>
+        <option value="{{$category->id}}">{{$category->content}}</option>
         @endforeach
       </select>
       <input type="submit" value="検索" class="main-form-bottom">
