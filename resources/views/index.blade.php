@@ -99,7 +99,7 @@
     <form action="/find" method="post">
       @csrf
       <input type="text" class="main-form-content" name="input" value="{{$input ?? ''}}">
-      <select name="category"  class="main-form-select">
+      <select name="cate"  class="main-form-select">
         <option value="">カテゴリー</option>
         @foreach($categories as $category)
         <option value="{{$category->id}}">{{$category->content}}</option>

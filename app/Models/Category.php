@@ -14,7 +14,12 @@ class Category extends Model
     public static $rules = array(
         'content' => 'required'
     );
-    
+    public function messages()
+    {
+        return [
+            'content.required' => 'カテゴリを入力してください',
+        ];
+    }
     public function todos(){
         return $this->hasMany('App\Models\Todo');
     }
