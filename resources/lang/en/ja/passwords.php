@@ -5,7 +5,6 @@ return [
     /*
     |--------------------------------------------------------------------------
     | Password Reset Language Lines
-    | パスワードリセット言語
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -14,10 +13,10 @@ return [
     |
     */
 
-    'password' => 'パスワードは６字以上、かつ、確認用と一致している必要があります',
-    'reset' => 'パスワードがリセットされました',
-    'sent' => 'パスワードリセットリンクが電子メールで送信されました',
-    'token' => 'このパスワードリセットトークンは無効です',
-    'user' => "ユーザーは存在しません",
+    'reset' => 'Your password has been reset!',
+    'sent' => 'We have emailed your password reset link!',
+    'throttled' => 'Please wait before retrying.',
+    'token' => 'This password reset token is invalid.',
+    'user' => "We can't find a user with that email address.",
 
 ];
