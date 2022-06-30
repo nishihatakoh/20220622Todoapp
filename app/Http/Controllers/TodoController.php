@@ -20,7 +20,7 @@ class TodoController extends Controller
         $form=$request->all();
         unset($form['_token']);
         Todo::create($form);
-        return redirect('/');
+        return redirect('/')->with('message','Todoを作成しました');
     }
     public function find(Request $request)
     {
@@ -39,11 +39,11 @@ class TodoController extends Controller
         $form=$request->all();
         unset($form['_token']);
         Todo::where('id', $request->id)->update($form);
-        return redirect('/');
+        return redirect('/')->with('message','Todoを更新しました');
     }
     public function delete(Request $request)
     {
         Todo::find($request->id)->delete();
-        return redirect('/');
+        return redirect('/')->with('message','Todoを削除しました');
     }
 }

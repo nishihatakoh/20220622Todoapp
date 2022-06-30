@@ -20,7 +20,7 @@ class CategoryController extends Controller
         $form=$request->all();
         $category->fill($form)->save();
         unset($form['_token']);
-        return redirect('/category');
+        return redirect('/category')->with('message','カテゴリを作成しました');
     }
     public function update(Request $request)
     {   
@@ -29,12 +29,12 @@ class CategoryController extends Controller
         $form = $request->all();
         unset($form['_token']);
         $category->fill($form)->save();
-        return redirect('/category');
+        return redirect('/category')->with('message','カテゴリを更新しました');
     }
     public function delete(Request $request)
     {
         Category::find($request->id)->delete();
-        return redirect('/category');
+        return redirect('/category')->with('message','カテゴリを削除しました');
     }
 }
 

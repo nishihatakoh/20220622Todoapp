@@ -68,6 +68,10 @@
   background-color:pink;
   padding:20px 0;
 }
+.success-alart{
+  background-color:#66FF99;
+  padding:20px 0;
+}
 </style>
 @section('content')
 @if (count($errors) > 0)
@@ -77,6 +81,11 @@
     {{$error}}
   </li>
   @endforeach
+</ul>
+@endif
+@if(session('message'))
+<ul>
+  <li class="success-alart">{{session('message')}}</li>
 </ul>
 @endif
 <div class="main">
