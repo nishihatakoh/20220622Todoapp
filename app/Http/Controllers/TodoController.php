@@ -24,7 +24,7 @@ class TodoController extends Controller
     }
     public function find(Request $request)
     {
-        $items = Todo::where('content', 'LIKE',"%{$request->input}%")->orWhere('category_id',$request->cate)->get();
+        $items = Todo::where('content', 'LIKE',"%{$request->input}%")->Where('category_id',$request->cate)->get();
         $param = [
             'input' => $request->input,
             'cate' => $request->cate,
